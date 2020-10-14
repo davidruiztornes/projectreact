@@ -1,14 +1,21 @@
-import React from 'react';
+import React,{useState} from 'react';
+import Tweet from './Tweet'
+
 
 function App(){
 
-  const sayHello = () => {
-    console.log("hello");
-  }
+  const [users,setUsers] = useState([
+
+    {name:"David", message : "Missatge Hola"},
+    {name:"Toni", message : "El meu primer missatge"},
+    {name:"Arnau", message : "Estaba escoltant"}
+  ]);
+
    return (
-     <div>
-       <h1>Hello React</h1>
-       <button onClick={sayHello}>Hello</button>
+     <div className="app">
+       {users.map(user =>(
+         <Tweet name={user.name} message={user.message}/>
+       ))}
      </div>    
    );
 }
